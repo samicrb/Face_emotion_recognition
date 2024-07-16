@@ -15,6 +15,8 @@ def load_data(file_path):
     pixels = data['pixels'].tolist()
     images = np.array([np.fromstring(pixel, dtype=int, sep=' ').reshape(48, 48) for pixel in pixels])
     labels = pd.get_dummies(data['emotion']).values
+    print(images[1])
+    print(labels[1])
     return images, labels
 
 # Redimensionnement des images
