@@ -11,24 +11,30 @@ csv_file = 'FaceEmotionRecognition/data/second_training/raw/affectnet/labels.csv
 # Charger les labels
 data = pd.read_csv(csv_file)
 
-# Supprimer les labels 'contempt'
-data = data[data['label'] != 'contempt']
+# Afficher les labels uniques avant la filtration
+print("Labels before filtering:", data['label'].unique())
 
 # Correspondance des labels entre Affectnet et votre modèle
-# Mappez les labels d'Affectnet à ceux de votre modèle
 label_map = {
     'anger': 0,
     'disgust': 1,
     'fear': 2,
-    'happiness': 3,
-    'sadness': 4,
+    'happy': 3,  # Correction ici
+    'sad': 4,    # Correction ici
     'surprise': 5,
     'neutral': 6
-    # contempt est exclu
 }
+
+# Supprimer les labels 'contempt'
+data = data[data['label'] != 'contempt']
 
 # Filtrer les labels non utilisés
 data = data[data['label'].isin(label_map.keys())]
+
+# Vérification après la filtration
+print("Labels after filtering:", data['label'].unique())
+print("Label distribution:")
+print(data['label'].value_counts())
 
 # Fonction pour redimensionner les images
 def resize_image(image, size=(48, 48)):
