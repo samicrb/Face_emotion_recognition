@@ -4,7 +4,7 @@ import numpy as np
 
 
 # Charger le modèle Keras
-model = tf.keras.models.load_model('models/emotion_model_affect.keras')
+model = tf.keras.models.load_model('FaceEmotionRecognition/models/current/emotion_model_affect.keras')
 
 
 def preprocess_image(image):
@@ -40,7 +40,7 @@ def detect_faces(frame):
     return faces
 
 # Ouvrir la vidéo
-video_capture = cv2.VideoCapture('Live_detection/exemple_video.mp4')
+video_capture = cv2.VideoCapture('exemple_video.mp4')
 
 while video_capture.isOpened():
     ret, frame = video_capture.read()
