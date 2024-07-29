@@ -18,7 +18,7 @@ To install the required dependencies, run:
 
 pip install -r requirements.txt
 
-For real-time emotion detection from video, run:
+For real-time emotion detection from video, you have to add a video named "exemple_video.mp4" to the root and run:
 
 python emotion_recognition.py
 
